@@ -19,8 +19,7 @@ gulp.task('scripts', function() {
     .pipe(rename('index.min.html'))    
 	.pipe(gulp.dest('./dist'));
 });
-// Todos os arquivos da pasta source deve conter um watch para monitorar alterações (salvar o arquivo)
-e invocar suas respectivas tarefas.
+// Todos os arquivos da pasta source deve conter um watch para monitorar alterações (salvar o arquivo)e invocar suas respectivas tarefas.
 gulp.task('background', function() {
-    gulp.watch('./source/*.', ['scripts']);
+    gulp.watch('source/*.html', ['scripts']);
 });
