@@ -6,8 +6,8 @@ var concat = require('gulp-concat');
 var rename = require('gulp-rename');
 // Tarefas para compilar e minificar os arquivos da pasta scss e enviar para a pasta (css) que ficará dentro da pasta dist.
 gulp.task('mini', function() {
-    return gulp.src('scss/*.scss')
-    .pipe(concat('./scss'))
+    return gulp.src('source/scss/*.scss')
+    .pipe(concat('.source/scss'))
     .pipe(rename('dist.min.scss'))
 	.pipe(minifycss())    
 	.pipe(gulp.dest('./dist/css'));
@@ -21,5 +21,5 @@ gulp.task('scripts', function() {
 });
 // Todos os arquivos da pasta source deve conter um watch para monitorar alterações (salvar o arquivo)e invocar suas respectivas tarefas.
 gulp.task('background', function() {
-    gulp.watch('source/*.html', ['scripts']);
+    gulp.watch('source/**.*', ['scripts'],['mini']);
 });
